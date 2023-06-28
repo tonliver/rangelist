@@ -16,7 +16,7 @@ export default class RangeList {
     }
     
     let positionOfNewRange = 0;
-	  let countOfMergedRange = 0;
+    let countOfMergedRange = 0;
 
     for (let currentRange of this.ranges) {
       if (newRange.isBefore(currentRange)) {
@@ -46,7 +46,7 @@ export default class RangeList {
       return;
     }
     let positionOfFirstIntersectiveRange = 0;
-	  let countOfModifedRanges = 0;
+    let countOfModifedRanges = 0;
     const modifiedRanges = [];
     for (let currentRange of this.ranges) {
       if (targetRange.isBefore(currentRange)) {
