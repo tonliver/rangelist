@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    // 开启的特性
+    // 兼容 babel 模块导入的模式（不需要 * as）
+    "esModuleInterop": true,
+    // 支持引入 json 模块
+    "resolveJsonModule": true,
+    // 禁止导入模块时大小写错误
+    "forceConsistentCasingInFileNames": true,
+    // 生成文件的配置
+    //
+    // 指定生成文件的 ECMAScript 版本
+    "target": "ES6",
+    // 指定生成哪个模块系统代码
+    "module": "CommonJS",
+    "types": ["node", "jest"],
+    // 决定如何处理模块
+    "moduleResolution": "node",
+    // 生成的文件的换行符
+    "newLine": "lf",
+    // 不生成输出
+    "noEmit": false,
+
+    // 严格模式，可选择性的开启，建议开启的越多越好
+    //
+    // 严格模式
+    "strict": true,
+    "strictNullChecks": true,
+    // 若有未使用的局部变量则抛错
+    "noUnusedLocals": true,
+    "importsNotUsedAsValues": "remove",
+    // stdout 输出
+    //
+    // 给错误和消息设置样式，使用颜色和上下文
+    "pretty": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"],
+    }
+  },
+  "exclude": ["./node_modules", "./*.config.js"],
+  "include": ["./src/**/*.ts", "./tests/**/*.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

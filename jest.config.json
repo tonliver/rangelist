@@ -1,0 +1,22 @@
+{
+  "moduleFileExtensions": ["js", "ts", "json", "vue"],
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "testMatch": ["**/tests/**/*.spec.(js|ts)"],
+  "transform": {
+    "^.+\\.(js|ts)$": "./node_modules/babel-jest"
+  },
+  "collectCoverage": true,
+  "coverageDirectory": "./__report/coverage/",
+  "testResultsProcessor": "./node_modules/jest-html-reporter",
+  "testEnvironment": "jsdom",
+  "transformIgnorePatterns": [
+    "/node_modules/.+\\.js$"
+  ],
+  "testURL": "http://unittest.com",
+  "moduleNameMapper": {
+    "@\/(.*)$": "<rootDir>/src/$1",
+    "@tests\/(.*)$": "<rootDir>/tests/$1"
+  }
+}
