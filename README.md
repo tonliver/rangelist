@@ -25,7 +25,7 @@ rangeList.remove([3, 4]);
 ## Qucik start
 ### Install all required packages
 ```shell
-npm i
+npm install
 ```
 ### Run example
 ```shell
@@ -33,7 +33,7 @@ npm run app
 ```
 ### All commands
 ```shell
-npm run run     # run example
+npm run app     # run example
 npm run test    # run all unit test
 npm run doc     # generate ts docs
 npm run build   # build code for production env
