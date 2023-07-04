@@ -37,33 +37,36 @@ export default class RangeList {
   /**
    * remove a range from list
    * @param {RangeTuple} range - range to remove from list 
-   * @returns 
+   * @returns {RangeList}
    */
-  public remove(range: RangeTuple) {
-    const targetRange = new Range(range);
+  public remove(range: RangeTuple): RangeList {
+    const rangeToRemove = new Range(range);
     
-    if (targetRange.isEmpty()) {
-      return;
+    if (rangeToRemove.isEmpty()) {
+      return this;
     }
+
     let positionOfFirstIntersectiveRange = 0;
-    let countOfModifedRanges = 0;
+    let countOfModifiedRanges = 0;
     const modifiedRanges = [];
+
     for (let currentRange of this.ranges) {
-      if (targetRange.isBefore(currentRange)) {
+      if (rangeToRemove.isBefore(currentRange)) {
         break;
       }
-      if (!targetRange.isIntersective(currentRange)) {
+      if (!rangeToRemove.isIntersective(currentRange)) {
         positionOfFirstIntersectiveRange += 1;
         continue;
       }
-      const removedResult = currentRange.remove(targetRange);
-      if (removedResult.length > 0) {
-        modifiedRanges.push(...removedResult);
+      const remainRanges = currentRange.remove(rangeToRemove);
+      if (remainRanges.length > 0) {
+        modifiedRanges.push(...remainRanges);
       }
-      countOfModifedRanges += 1;
+      countOfModifiedRanges += 1;
     }
 
-    this.ranges.splice(positionOfFirstIntersectiveRange, countOfModifedRanges, ...modifiedRanges);
+    this.ranges.splice(positionOfFirstIntersectiveRange, countOfModifiedRanges, ...modifiedRanges);
+    return this;
   }
 
   public toString(): string {

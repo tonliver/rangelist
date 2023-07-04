@@ -87,6 +87,7 @@ export default class Range {
 
     const results = [];
     const [start, end] = range.toTuple();
+    
     if (this.start < start) {
       results.push(new Range(this.start, start));
     }
